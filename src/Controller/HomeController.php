@@ -29,4 +29,12 @@ class HomeController extends AbstractController
     {
         return;
     }
+
+    /**
+    * @Route("/logout", name="logout")
+    */
+    public function logout()
+    {
+        return;
+    }
 }

@@ -67,7 +67,14 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="top-right links">
-                <a href="{{ path('login') }}">Log in with Okta</a>
+                {% if is_granted('ROLE_USER') %}
+                    <p>
+                        Logged in as {{ app.user.name }}<br>
+                        <a href="{{ path('logout') }}">Logout</a>
+                    </p>
+                {% else %}
+                    <a href="{{ path('login') }}">Log in with Okta</a>
+                {% endif %}
             </div>
 
             <div class="content">

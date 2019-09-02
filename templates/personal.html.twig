@@ -3,8 +3,8 @@
 {% block body %}
 <h2>Personal Home Page</h2>
 <p>
-    You are logged in as ...! <br>
-    Your email address is ...!
+    You are logged in as {{ app.user.name }}! <br>
+    Your email address is {{ app.user.email }}!
 </p>
 
 <div class="links">

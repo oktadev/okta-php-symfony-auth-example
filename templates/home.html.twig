@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+{% if is_granted('ROLE_USER') %}
 <div class="links">
     <a href="{{ path('personal') }}">Personal Home Page</a>
 </div>
+{% endif %}
 {% endblock %}
