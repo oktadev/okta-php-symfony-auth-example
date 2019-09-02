@@ -9,5 +9,7 @@ security:
         main:
             anonymous: true
             pattern: ^/
+            logout:
+                path: logout
     access_control:
         - { path: ^/personal, roles: ROLE_USER }

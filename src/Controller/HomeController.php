@@ -90,6 +90,6 @@ class HomeController extends AbstractController
     */
     public function logout()
     {
-        return;
+
     }
 }
