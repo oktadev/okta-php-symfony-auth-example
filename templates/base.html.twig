@@ -69,7 +69,7 @@
             <div class="top-right links">
                 {% if is_granted('ROLE_USER') %}
                     <p>
-                        Logged in as {{ app.user.name }}<br>
+                        Logged in as {{ app.user.email }}<br>
                         <a href="{{ path('logout') }}">Logout</a>
                     </p>
                 {% else %}

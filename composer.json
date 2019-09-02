@@ -16,7 +16,8 @@
         "symfony/yaml": "4.3.*"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.13"
+        "symfony/maker-bundle": "^1.13",
+        "symfony/var-dumper": "4.3.*"
     },
     "config": {
         "preferred-install": {

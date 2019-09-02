@@ -28,7 +28,7 @@ class User implements UserInterface, \Serializable
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $token;
 
@@ -92,7 +92,7 @@ class User implements UserInterface, \Serializable
 
     public function getUsername()
     {
-        return $this->username;
+        return $this->email;
     }
 
     public function eraseCredentials()
