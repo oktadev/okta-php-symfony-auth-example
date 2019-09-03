@@ -61,7 +61,7 @@ class HomeController extends AbstractController
         $token = $this->okta->authorizeUser();
 
         if (! $token) {
-            return new Response(json_encode([]), 401);
+            return $this->redirectToRoute('home');
         }
 
         $email = $token->username;
