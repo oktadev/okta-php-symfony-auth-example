@@ -28,6 +28,7 @@ class OktaApiService
             'response_type' => 'code',
             'client_id' => $this->clientId,
             'redirect_uri' => $this->redirectUri,
+            'scope' => 'openid email',
             'state' => $this->session->get('state')
         ]);
         return $url;
@@ -53,23 +54,15 @@ class OktaApiService
             'client_secret' => $this->clientSecret
         ]);
 
-        if (! isset($response->access_token)) {
+        if (!isset($response->id_token)) {
             return null;
         }
 
-        $this->session->set('access_token', $response->access_token);
+        $this->session->set('id_token', $response->id_token);
 
-        $token = $this->httpRequest($metadata->introspection_endpoint, [
-            'token' => $response->access_token,
-            'client_id' => $this->clientId,
-            'client_secret' => $this->clientSecret
-        ]);
+        $claims = json_decode(base64_decode(explode('.', $response->id_token)[1]));
 
-        if ($token->active == 1) {
-            return $token;
-        }
-
-        return null;
+        return $claims;
     }
 
     private function httpRequest($url, $params = null)

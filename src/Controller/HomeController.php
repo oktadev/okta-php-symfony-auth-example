@@ -57,14 +57,13 @@ class HomeController extends AbstractController
     */
     public function callback()
     {
-        $accessToken = $this->session->get('access_token');
         $token = $this->okta->authorizeUser();
 
         if (! $token) {
             return $this->redirectToRoute('home');
         }
 
-        $email = $token->username;
+        $email = $token->email;
         $user = $this->userRepository->findOneByEmail($email);
 
         if (! $user) {
