@@ -1,6 +1,6 @@
 # Symfony Authentication
 
-This example shows how to add authentication to a Symfony project usokg Okta.
+This example shows how to add authentication to a Symfony project using Okta.
 
 ## Getting Started
 
